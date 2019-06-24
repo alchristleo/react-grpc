@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package colorgenerator;
+
+message Empty { }
+
+message ColorResponse {
+    string rescolor = 1;
+}
+
+service ColorService {
+    rpc GenerateColor (Empty) returns (ColorResponse);
+}

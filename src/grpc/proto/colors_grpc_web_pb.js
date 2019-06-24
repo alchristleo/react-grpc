@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for colors
+ * @fileoverview gRPC-Web generated client stub for colorgenerator
  * @enhanceable
  * @public
  */
@@ -12,7 +12,7 @@ const grpc = {};
 grpc.web = require('grpc-web');
 
 const proto = {};
-proto.colors = require('./colors_pb.js');
+proto.colorgenerator = require('./colors_pb.js');
 
 /**
  * @param {string} hostname
@@ -22,7 +22,7 @@ proto.colors = require('./colors_pb.js');
  * @struct
  * @final
  */
-proto.colors.ColorServiceClient =
+proto.colorgenerator.ColorServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options['format'] = 'text';
@@ -58,7 +58,7 @@ proto.colors.ColorServiceClient =
  * @struct
  * @final
  */
-proto.colors.ColorServicePromiseClient =
+proto.colorgenerator.ColorServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options['format'] = 'text';
@@ -89,57 +89,57 @@ proto.colors.ColorServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.colors.ColorRequest,
- *   !proto.colors.ColorResponse>}
+ *   !proto.colorgenerator.Empty,
+ *   !proto.colorgenerator.ColorResponse>}
  */
-const methodInfo_ColorService_color = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.colors.ColorResponse,
-  /** @param {!proto.colors.ColorRequest} request */
+const methodInfo_ColorService_GenerateColor = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.colorgenerator.ColorResponse,
+  /** @param {!proto.colorgenerator.Empty} request */
   function(request) {
     return request.serializeBinary();
   },
-  proto.colors.ColorResponse.deserializeBinary
+  proto.colorgenerator.ColorResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.colors.ColorRequest} request The
+ * @param {!proto.colorgenerator.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.colors.ColorResponse)}
+ * @param {function(?grpc.web.Error, ?proto.colorgenerator.ColorResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.colors.ColorResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.colorgenerator.ColorResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.colors.ColorServiceClient.prototype.color =
+proto.colorgenerator.ColorServiceClient.prototype.generateColor =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/colors.ColorService/color',
+      '/colorgenerator.ColorService/GenerateColor',
       request,
       metadata || {},
-      methodInfo_ColorService_color,
+      methodInfo_ColorService_GenerateColor,
       callback);
 };
 
 
 /**
- * @param {!proto.colors.ColorRequest} request The
+ * @param {!proto.colorgenerator.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.colors.ColorResponse>}
+ * @return {!Promise<!proto.colorgenerator.ColorResponse>}
  *     A native promise that resolves to the response
  */
-proto.colors.ColorServicePromiseClient.prototype.color =
+proto.colorgenerator.ColorServicePromiseClient.prototype.generateColor =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/colors.ColorService/color',
+      '/colorgenerator.ColorService/GenerateColor',
       request,
       metadata || {},
-      methodInfo_ColorService_color);
+      methodInfo_ColorService_GenerateColor);
 };
 
 
-module.exports = proto.colors;
+module.exports = proto.colorgenerator;
 
